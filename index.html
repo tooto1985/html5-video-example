@@ -16,6 +16,9 @@
 			width: 98%;
 			margin: 0 1%;
 		}
+		.showBox img {
+			display: none;
+		}
 		.listBox {
 			margin: 1% 0;
 			overflow: hidden;
@@ -32,21 +35,20 @@
 		$(function() {
 			$(".listBox>a").click(function(e) {
 				var $this = $(this);
-				$(".showBox").html(showBox($this.attr("href")));
+				$(".showBox>*").hide().eq($this.index()).show();
 				e.preventDefault();
 			}).eq(0).click();
-			function showBox(filename) {
-				if (filename.indexOf(".mp4") > -1) {
-					return "<video loop autoplay muted playsinline><source src=\"" + filename + "\" type=\"video/mp4\"></video>";
-				} else {
-					return "<img src=\"" + filename + "\">";
-				}
-			}
 		});
 	</script>
 </head>
 <body>
-	<div class="showBox"></div>
+	<div class="showBox">
+		<video loop autoplay muted playsinline><source src="1.mp4" type="video/mp4"></video>
+		<img src="2.jpg">
+		<img src="3.jpg">
+		<img src="4.jpg">
+		<img src="5.jpg">
+	</div>
 	<div class="listBox">
 		<a href="1.mp4"><img src="1.jpg"></a>
 		<a href="2.jpg"><img src="2.jpg"></a>
