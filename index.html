@@ -37,7 +37,7 @@
 			}).eq(0).click();
 			function showBox(filename) {
 				if (filename.indexOf(".mp4") > -1) {
-					return "<video loop autoplay mute playsinline><source src=\"" + filename + "\" type=\"video/mp4\"></video>";
+					return "<video loop autoplay muted playsinline><source src=\"" + filename + "\" type=\"video/mp4\"></video>";
 				} else {
 					return "<img src=\"" + filename + "\">";
 				}
