@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Page</title>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+	<style>
+		body {
+		    margin:0;
+		    background-color:#ccc;
+		}
+		.showBox {
+			margin: 1% 0;
+		}
+		.showBox img,.showBox video {
+			width: 98%;
+			margin: 0 1%;
+		}
+		.listBox {
+			margin: 1% 0;
+			overflow: hidden;
+		}
+		.listBox img {
+		    width:18%;
+		    margin:0 1%;
+		    float: left;
+		    cursor: pointer;
+		}
+	</style>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(function() {
+			$(".listBox>a").click(function(e) {
+				var $this = $(this);
+				$(".showBox").html(showBox($this.attr("href")));
+				e.preventDefault();
+			}).eq(0).click();
+			function showBox(filename) {
+				if (filename.indexOf(".mp4") > -1) {
+					return "<video loop autoplay><source src=\"" + filename + "\" type=\"video/mp4\"></video>";
+				} else {
+					return "<img src=\"" + filename + "\">";
+				}
+			}
+		});
+	</script>
+</head>
+<body>
+	<div class="showBox"></div>
+	<div class="listBox">
+		<a href="1.mp4"><img src="1.jpg"></a>
+		<a href="2.jpg"><img src="2.jpg"></a>
+		<a href="3.jpg"><img src="3.jpg"></a>
+		<a href="4.jpg"><img src="4.jpg"></a>
+		<a href="5.jpg"><img src="5.jpg"></a>
+	</div>
+</body>
+</html>
